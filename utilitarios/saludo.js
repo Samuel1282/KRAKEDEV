@@ -6,7 +6,6 @@ saludar=function(){
     let edad=recuperarInt("txtEdad");
     let estatura=recuperarFloat("txtEstatura");
 }
-
 recuperarTexto=function(idComponente){
 let componente;
 let valorIngresado;
