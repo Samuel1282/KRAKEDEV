@@ -8,6 +8,7 @@ saludar=function(){
     let mensajeBienvenida="Bienvenido "+nombre+" "+apellido;
     mostarTexto("IbResultado",mensajeBienvenida);
     mostrarImagen("imgSaludo", "./Imagenes/saludos-hola.gif");
+    mostarTextoEncaja("txtNombre", " ");
 }
 mostrarImagen=function(idComponente, rutaImagen){
     let componente;
@@ -18,6 +19,11 @@ mostarTexto=function(idComponente, mensaje){
     let componente;
     componente=document.getElementById(idComponente);
     componente.innerText=mensaje;
+mostarTextoEncaja=function(idComponente, mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.value=mensaje;
+}
 }
 recuperarTexto=function(idComponente){
     let componente;
