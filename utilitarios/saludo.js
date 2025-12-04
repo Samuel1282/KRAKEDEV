@@ -5,13 +5,26 @@ saludar=function(){
     let apellido=recuperarTexto("txtApellido");
     let edad=recuperarInt("txtEdad");
     let estatura=recuperarFloat("txtEstatura");
+    let mensajeBienvenida="Bienvenido "+nombre+" "+apellido;
+    mostarTexto("IbResultado",mensajeBienvenida);
+    mostrarImagen("imgSaludo", "./Imagenes/saludos-hola.gif");
+}
+mostrarImagen=function(idComponente, rutaImagen){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.src=rutaImagen;
+}
+mostarTexto=function(idComponente, mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.innerText=mensaje;
 }
 recuperarTexto=function(idComponente){
-let componente;
-let valorIngresado;
-componente=document.getElementById(idComponente);
-valorIngresado=componente.value; 
-return valorIngresado;
+    let componente;
+    let valorIngresado;
+    componente=document.getElementById(idComponente);
+    valorIngresado=componente.value; 
+    return valorIngresado;
 }
 
 recuperarInt = function(idComponente){
