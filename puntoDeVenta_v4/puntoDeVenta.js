@@ -10,6 +10,7 @@ calcularValorTotal = function () {
     let valorDescuento;
     let valorIVA;
     let valorTotal;
+    let valorConDescuento;
 
     //1. Recuperar el nombre del producto como String
     nombreProducto=recuperarTexto("txtProducto");
@@ -48,8 +49,11 @@ calcularValorTotal = function () {
         Si el caso de prueba es exitoso, hacer un commit
      */
     //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA
+    valorConDescuento=valorSubtotal-valorDescuento;
+    valorIVA=calcularIVA(valorConDescuento).toFixed(2);
     // El IVA debe calcularse sobre el valor del subtotal menos el descuento
     //9. Mostrar el resultado en el componente lblValorIVA    
+    mostrarTexto("lblValorIVA", valorIVA);
         /*
             Caso de prueba: 
                 - cantidad: 10 
