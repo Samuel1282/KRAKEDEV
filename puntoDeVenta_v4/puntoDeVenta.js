@@ -11,6 +11,7 @@ calcularValorTotal = function () {
     let valorIVA;
     let valorTotal;
     let valorConDescuento;
+    let valorIVA2;
 
     //1. Recuperar el nombre del producto como String
     nombreProducto=recuperarTexto("txtProducto");
@@ -50,10 +51,11 @@ calcularValorTotal = function () {
      */
     //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA
     valorConDescuento=valorSubtotal-valorDescuento;
-    valorIVA=calcularIVA(valorConDescuento).toFixed(2);
+    valorIVA=calcularIVA(valorConDescuento);
+    valorIVA2=valorIVA.toFixed(3);
     // El IVA debe calcularse sobre el valor del subtotal menos el descuento
     //9. Mostrar el resultado en el componente lblValorIVA    
-    mostrarTexto("lblValorIVA", valorIVA);
+    mostrarTexto("lblValorIVA", valorIVA2);
         /*
             Caso de prueba: 
                 - cantidad: 10 
@@ -70,7 +72,9 @@ calcularValorTotal = function () {
             Si el caso de prueba es exitoso, hacer un commit
         */
     //10. Invocar a calcularTotal y lo que devuelve guardar en la variable valorTotal
+    valorTotal=calcularTotal(valorSubtotal, valorDescuento, valorIVA);
     //11. Mostrar el resultado en el componente lblTotal
+    mostrarTexto("lblTotal",valorTotal);
     /*
         Caso de prueba: 
             - cantidad: 10
@@ -95,8 +99,18 @@ calcularValorTotal = function () {
 
 }
 limpiar = function () {
+
+    mostrarTextoEnCaja("txtProducto", " ");
+    mostrarTextoEnCaja("txtCantidad", " ");
+    mostrarTextoEnCaja("txtPrecio", " ");
+    mostrarTextoEnCaja("txtPorcentajeDescuento", " ");
+    mostrarTexto("lblSubtotal",0.0);
+    mostrarTexto("lblDescuento",0.0);
+    mostrarTexto("lblValorIVA",0.0);
+    mostrarTexto("lblTotal",0.0);
     /*
         Dejar todas las cajas de texto con el valor cadena vacía, 0 ó 0.0 según el tipo de dato
+        
         Dejar todos los textos de los montos con el valor 0.0
         Si funciona, hacer un commit
      */
